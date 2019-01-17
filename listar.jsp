@@ -82,54 +82,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="list-group" id="sortable">
-                <%
-                while (rs.next()) {
-                    String titulo = rs.getString("de_titulo");
-                    String id = rs.getString("cd_task");
-                    String status = rs.getString("de_status");
-                %>
-                <div data-id="<%=id%>" class="list-group-item list-group-item-action ui-state-default
-                    <% if ("REMOVIDA".equals(status)) { out.println("disabled"); }
-                    %>
-                    ">
-                    <div class="container-fluid">
-                        <div class="row justify-content-start">
-                                <div class="col-6">
-                                    <a href="${root}editar.jsp?id=<%=id%>" class="
-                                    <%
-                                        if ("FINALIZADA".equals(status)) {
-                                            out.println("text-success");
-                                        } else if ("REMOVIDA".equals(status)) {
-                                            out.println("text-secondary");
-                                        } else {
-                                            out.println("text-primary");
-                                        }
-                                    %>
-                                        "><%=titulo%></a>
-                                </div>
-                                <div class="col-6 text-right">
-                                    <%
-                                        if (!"REMOVIDA".equals(status)) {
-                                            if (!"FINALIZADA".equals(status)) {
-                                    %>
-                                                <a href="${root}finalizar.jsp?id=<%=id%>"><button type="button" class="btn btn-primary">Finalizar</button></a>
-                                    <%      
-                                            }
-                                    %>
-                                            <a href="${root}editar.jsp?id=<%=id%>"><i class="far fa-edit"></i></a>
-                                            <a href="${root}deletar.jsp?id=<%=id%>"><i class="far fa-trash-alt"></i></a>
-                                    <%
-                                        }
-                                    %>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <%
-                }
-                %>
-            </div>
         </div>
     </div>
 </div>
