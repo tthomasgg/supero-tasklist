@@ -1,0 +1,7 @@
+.fa-edit:hover, .fa-trash-alt:hover {
+    cursor:pointer;
+}
+
+.containerListagem {
+    margin-top:35px;
+}
